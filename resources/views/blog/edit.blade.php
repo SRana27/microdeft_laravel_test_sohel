@@ -19,7 +19,7 @@
 
                     <form class="row g-3" action="{{route('update.blog')}}" method="post" enctype="multipart/form-data">
                         @csrf
-
+                        <input type="hidden" name="blog_id" value="{{$blog->id}}">
                         <div class="col-12">
                             <label class="form-label"><b>Title</b></label>
                             <input type="text" name="title" value="{{$blog->title}}" class="form-control">

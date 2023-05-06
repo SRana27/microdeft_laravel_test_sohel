@@ -3,13 +3,14 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Manage Category
+                Manage blog
             </div>
             <div class="table-responsive">
                 <table  class="table table-hover table-bordered table-striped">
                     <thead>
                     <tr>
                         <th>Sl</th>
+                        <td>id</td>
                         <th>title</th>
                         <th>Description</th>
                         <th>Image</th>
@@ -32,12 +33,12 @@
 
 
                             <td class="d-flex">
-                                <a href="" class="btn btn-primary mx-2 "><i class="fas fa-edit">edit</i></a>
+                                <a href="{{route('edit.blog',['id'=>$blog->id])}}" class="btn btn-primary mx-2 ">edit</a>
 
-                                <form action="" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('delete.blog')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <input type="hidden" name="category_id" value="{{$blog->id}}">
-                                    <a class="btn btn-danger"  onclick="return confirm('are you sure for delete')">delete</a>
+                                    <input type="hidden" name="blog_id" value="{{$blog->id}}">
+                                    <button>delete</button>
                                 </form>
                             </td>
                         </tr>

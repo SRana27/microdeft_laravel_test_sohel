@@ -21,12 +21,22 @@ class BlogController extends Controller
   return view('blog.manage',[
       'blogs'=>Blog::all()
   ]);
-
     }
     public function edit($blog_id)
     {
         return view('blog.edit',[
-            'blogs'=>Blog::find(blog_id)
+            'blog'=>Blog::find($blog_id)
         ]);
     }
+    public function updateBlog(Request $request){
+        Blog::saveblog($request);
+        return redirect('/manage-blog');
+    }
+
+     public function deleteBlog(Request $request)
+     {
+        Blog::deleteblog($request);
+         return redirect('/manage-blog');
+    }
+
 }
