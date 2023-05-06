@@ -39,7 +39,7 @@ class Blog extends Model
     private static function saveImg($request)
     {
         self::$image = $request->file('image');
-        self::$imageNewName = 'category-' . rand() . '.' . self::$image->Extension();
+        self::$imageNewName = 'blog-' . rand() . '.' . self::$image->Extension();
         self::$directory = 'upload-image/blog/';
         self::$imageUrl = self::$directory . self::$imageNewName;
         self::$image->move(self::$directory, self::$imageNewName);
